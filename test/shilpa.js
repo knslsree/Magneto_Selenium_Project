@@ -8,7 +8,7 @@ so that I can find the product I want to buy.
 */
 
 //Test grouping:search
-describe.only('Search for a product', () => {
+describe('Search for a product', () => {
     //Test case:
     context('I search for a product',() => {
         it('I should see the product that i have searched for ', async() => {
