@@ -31,7 +31,7 @@ describe('login test',() => {
                 await driver.wait(until.elementLocated(By.css('.box-information .box-content p')), 10000);
                 let information = await driver.findElement(By.css('.box-information .box-content p')).getText();
                 
-                console.log(information.should.contain(user));
+               // console.log(information.should.contain(user));
 
              
             }
