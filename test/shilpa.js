@@ -1,7 +1,6 @@
-// Includes
 const { Builder , By, Key, until} = require ('selenium-webdriver');
-const should = require('chai').should();
 const assert = require('assert');
+const should = require('chai').should();
 const expect = require('chai').expect;
 
 /*  As a customer,
@@ -34,30 +33,32 @@ describe('Search for a product', () => {
              let productPrice = await product.findElement(By.css('.price'))
 
 
-            // Extract text
+            // Extra text
             let productTitleText = await productTitle.getText();
             let productPriceText = await productPrice.getText();
-             
-            //verify if the title and price  of the product matches the expected value
-            productTitleText.should.equal('Balboa Persistence Tee');
-            console.log(productTitleText, productPriceText);
-            //Asserts
-          assert.equal(productTitleText , 'Balboa Persistence Tee'); //Built in Node
-          expect(productTitleText).to.equal('Balboa Persistence Tee'); //Chai expect
-          productTitleText.should.equal('Balboa Persistence Tee'); //Chai should 
 
-         
-          assert.equal(productPriceText, '$29.00'); //Built in Node
-          expect(productPriceText).to.equal('$29.00'); //Chai expect
-          productPriceText.should.equal('$29.00'); //Chai should 
-          await driver.sleep(3000);
-        //await driver.quit();
+            productTitleText.should.equal('Balboa Persistence Tee');
+            productPriceText.should.equal('$29.00');
+           
+
+            //Asserts
+            assert.equal(productTitleText, 'Balboa Persistence Tee');//Builtin Node
+        expect(productTitleText).to.equal('Balboa Persistence Tee');// Chai expect
+        productTitleText.should.equal('Balboa Persistence Tee');// Chai should
+
+        assert.equal( productPriceText, '$29.00');//Builtin Node
+        expect( productPriceText).to.equal('$29.00');// Chai expect
+        productPriceText.should.equal('$29.00');// Chai should
+
+        console.log(productTitleText, productPriceText);
+        await driver.sleep(3000);
+
+            await driver.quit();
            } 
            finally {
-           await driver.quit();
+           //await driver.quit();
            }
 
         });
     });
-    
 });
