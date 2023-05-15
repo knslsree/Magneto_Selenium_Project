@@ -1,4 +1,4 @@
-const{Builder,By,Key,until, actions,WebElement} = require('selenium-webdriver');
+/*const{Builder,By,Key,until, actions,WebElement} = require('selenium-webdriver');
 //const actions = driver.actions();
 const should = require('chai').should();
 describe ('select the product in dropdown menu in women category',async ()=>{
@@ -49,6 +49,20 @@ describe ('select the product in dropdown menu in women category',async ()=>{
    const CartMessageText= await CartMessage.getText();
    console.log(CartMessageText);
    CartMessageText.should.equals('You added Diva Gym Tee to your shopping cart.');
+   
+   //Find the fourt product
+   /*await driver.wait(until.elementLocated(By.css('.product-item:last-child')),4000);
+   const product = await driver.findElement(By.css('.product-item:last-child'));
+
+   // Find information in the product we selected
+   let productTitle = await product.findElement(By.css('.product-item-link'));
+   
+
+   //Extract text
+   let productTitleText = await productTitle.getText();
+  
+
+   productTitleText.should.equal('Diva Gym Tee');
 
 }catch (error) {
     console.log(error);
@@ -56,4 +70,4 @@ describe ('select the product in dropdown menu in women category',async ()=>{
    // await driver.quit();
 }
     });
-  }); 
+  }); */
