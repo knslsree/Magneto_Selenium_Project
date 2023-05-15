@@ -9,7 +9,7 @@ so that I can find the product I want to buy.
 */
 
 //Test grouping:search
-describe('Search for a product', () => {
+describe.only('Search for a product', () => {
     //Test case:
     context('I search for a specific product',() => {
         it('I should see the product that i have searched for ', async() => {
