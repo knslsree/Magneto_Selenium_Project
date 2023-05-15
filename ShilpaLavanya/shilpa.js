@@ -1,6 +1,8 @@
 // Includes
 const { Builder , By, Key, until} = require ('selenium-webdriver');
 const should = require('chai').should();
+const assert = require('assert');
+const expect = require('chai').expect;
 
 /*  As a customer,
 I want to be able to search for a product,
@@ -8,7 +10,7 @@ so that I can find the product I want to buy.
 */
 
 //Test grouping:search
-describe.only('Search for a product', () => {
+describe('Search for a product', () => {
     //Test case:
     context('I search for a product',() => {
         it('I should see the product that i have searched for ', async() => {
@@ -30,24 +32,32 @@ describe.only('Search for a product', () => {
             //find the information in the product we selected
              let productTitle = await product.findElement(By.css('.product-item-link'));
              let productPrice = await product.findElement(By.css('.price'))
-            
 
-            // Extra text
+
+            // Extract text
             let productTitleText = await productTitle.getText();
             let productPriceText = await productPrice.getText();
-
+             
+            //verify if the title and price  of the product matches the expected value
             productTitleText.should.equal('Balboa Persistence Tee');
-            productPriceText.should.equal('$29.00');
-            
-
-
             console.log(productTitleText, productPriceText);
-            await driver.quit();
+            //Asserts
+          assert.equal(productTitleText , 'Balboa Persistence Tee'); //Built in Node
+          expect(productTitleText).to.equal('Balboa Persistence Tee'); //Chai expect
+          productTitleText.should.equal('Balboa Persistence Tee'); //Chai should 
+
+         
+          assert.equal(productPriceText, '$29.00'); //Built in Node
+          expect(productPriceText).to.equal('$29.00'); //Chai expect
+          productPriceText.should.equal('$29.00'); //Chai should 
+          await driver.sleep(3000);
+        //await driver.quit();
            } 
            finally {
-           //await driver.quit();
+           await driver.quit();
            }
 
         });
     });
+    
 });
