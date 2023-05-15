@@ -7,7 +7,7 @@ const should = require('chai').should();
                     select Tops  and 
                     choose the first item in the list that is displayed and add item to cart
                     */
-                    describe.only('Navigate to women category', () => {
+                    describe('Navigate to women category', () => {
                     // Test case:
                     context('Select Tops from dropdown', () => {
                         it('I see the selected product is added to cart', async () => {
@@ -44,11 +44,11 @@ const should = require('chai').should();
                                await driver.wait(until.elementLocated(By.css('#option-label-size-143-item-168')),10000);
                                await driver.findElement(By.id('option-label-size-143-item-168')).click();
 
-                               //document.querySelector('#option-label-color-93-item-60')--selectinng the color
+                             //document.querySelector('#option-label-color-93-item-60')--selectinng the color
                                await driver.wait(until.elementLocated(By.css('#option-label-color-93-item-60')),10000);
                                await driver.findElement(By.id('option-label-color-93-item-60')).click();
                             
-                                //accessing the qty text
+                             //accessing the qty text
                               await driver.wait(until.elementLocated(By.css('.box-tocart')),10000);
                               let qty= await driver.findElement(By.css('.box-tocart'));
                               let qtytext= await qty.findElement(By.css('.box-tocart > div :nth-child(1)'));
@@ -63,18 +63,22 @@ const should = require('chai').should();
                                await driver.sleep(10000);
                                await driver.wait(until.elementLocated(By.css('#product-addtocart-button')),10000);
                                await driver.findElement(By.id('product-addtocart-button')).click();
+                 
+                               await driver.wait(until.elementLocated(By.css('.message-success')),10000);
+                               let display=await driver.findElement(By.css('.message-success')).getText();
+                               console.log(display);
+
+                               display.should.equal('You added Breathe-Easy Tank to your shopping cart.');
                             
+                               await driver.sleep(2000);
+                               await driver.quit();
 
-                               
-                                 
-
-
-                               
-                                 
-                               
-
+                
                             }
-                            finally{}
+                                 finally{
+                                            //await driver.quit();
+
+                                 }
                         });
                     });
                 });
