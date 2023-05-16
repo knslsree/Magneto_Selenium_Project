@@ -1,6 +1,10 @@
-
 // Includes
-const { Builder,By,Key,until} = require('selenium-webdriver');
+const {
+    Builder,
+    By,
+    Key,
+    until
+} = require('selenium-webdriver');
 const should = require('chai').should();
 
 /*  As a customer,
@@ -9,7 +13,7 @@ so that i can find the product that matches my preferences or needs.
 */
 
 //Test grouping:search
-describe.only('Search for a product of particular color', () => {
+describe('Search for a product of particular color', () => {
     //Test case:
     context('Given a user is on the search page', () => {
         it('should show the shirt of preferred color', async () => {
@@ -60,25 +64,25 @@ describe.only('Search for a product of particular color', () => {
                 await driver.sleep(5000);
                 setTimeout(() => {
                     productColor3.click().then(() => {
-                        console.log("Choose blue color");
+                        console.log("Choose blue color shirt");
                     });
                 }, 5000);
                 await driver.sleep(10000);
                 //Asserts
-            assert.equal(productColor1, 'Orange');//Builtin Node
-            expect(productColor1).to.equal('Orange');// Chai expect
-            productColor1.should.equal('Orange');// Chai should
-    
-            assert.equal( productColor2, 'Purple');//Builtin Node
-            expect( productColor2).to.equal('Purple');// Chai expect
-            productColor2.should.equal('Purple');// Chai should
-    
-            assert.equal( productColor3, 'Blue');//Builtin Node
-            expect( productColor3).to.equal('Blue');// Chai expect
-            productColor3.should.equal('Blue');// Chai should
+                assert.equal(productColor1, 'Orange'); //Builtin Node
+                expect(productColor1).to.equal('Orange'); // Chai expect
+                productColor1.should.equal('Orange'); // Chai should
 
-             
-              
+                assert.equal(productColor2, 'Purple'); //Builtin Node
+                expect(productColor2).to.equal('Purple'); // Chai expect
+                productColor2.should.equal('Purple'); // Chai should
+
+                assert.equal(productColor3, 'Blue'); //Builtin Node
+                expect(productColor3).to.equal('Blue'); // Chai expect
+                productColor3.should.equal('Blue'); // Chai should
+
+
+
 
             } catch (Exception) {
 
